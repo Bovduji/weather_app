@@ -15,6 +15,10 @@ a:hover {
 	color: white;
 }
 
+p{
+	font-size: 11px;
+}
+
 .units {
 	font-size: 20px;
 	padding: 10px;
@@ -23,7 +27,7 @@ a:hover {
 
 }
 .container {
-	margin: 30px auto;
+	margin: 10px auto;
 	max-width: 500px;
 	border-radius: 10px;
 	padding: 20px;
@@ -106,4 +110,15 @@ a:hover {
 
 .date {
 	font-size: 14px;
+}
+
+.coder {
+	display: block;
+	margin: 0 auto;
+	padding: 0 10px;
+	max-width: 500px;
+}
+
+.link-git:hover {
+	color:#737dfe;
 }
