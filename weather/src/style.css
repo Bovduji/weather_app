@@ -1,0 +1,109 @@
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+h1, hr {
+	color: #fff;
+}
+
+a {
+	text-decoration: none;
+	color: #22577E;
+}
+
+a:hover {
+	color: white;
+}
+
+.units {
+	font-size: 20px;
+	padding: 10px;
+	color: black;
+	font-weight: 400;
+
+}
+.container {
+	margin: 30px auto;
+	max-width: 500px;
+	border-radius: 10px;
+	padding: 20px;
+	background: linear-gradient(178.18deg, #737dfe -5.88%, #ffcac9 103.61%);
+}
+
+.header {
+	margin-bottom: 18px;
+}
+
+.search {
+	margin-left: 20px;
+}
+
+.form-control {
+	font-family:monospace;
+	opacity: 0.7;
+}
+
+.btn-primary {
+	background-color: #95D1CC;
+	border: #5584AC;
+	box-shadow: 0 0 10px rgba(85, 132, 172, 0.5);
+}
+
+.btn-primary:hover {
+	background-color:#5584AC;
+}
+
+.col-left {
+	margin-left: 37px;
+}
+
+.current-city-title, .current-weekday {
+	font-size: 32px;
+	line-height: 45px;
+}
+
+.current-weather{
+	color:#22577E;
+	font-family: 'Sansita', sans-serif;
+	text-transform: capitalize;
+	font-size: 24px;
+}
+
+.current-city-title {
+	margin-top: 20px;
+}
+
+.current-temperature {
+	font-size: 26px;
+	font-weight: 900;
+	line-height: 25px;
+	color: #22577E;
+}
+
+
+.current-weather-emoji {
+	font-size: 60px;
+}
+
+.precipittion, .wind {
+	font-size: 16px;
+	font-family: 'Sansita', sans-serif;
+}
+
+.week {
+	text-align: center;
+}
+
+.weather-emoji {
+	font-size: 30px;
+	padding: 0;
+}
+
+.temperature {
+	color: #22577E;
+	font-weight: 500;
+}
+
+.date {
+	font-size: 14px;
+}
