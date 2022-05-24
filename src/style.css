@@ -60,7 +60,7 @@ p{
 	margin-left: 37px;
 }
 
-#current-city-title, .current-weekday {
+#current-city-title, #current-weekday {
 	font-size: 32px;
 	line-height: 45px;
 }
