@@ -38,7 +38,7 @@ function showWeather(response) {
 	let iconElement = document.querySelector("#icon");
 
 	temperatureElement.innerHTML = Math.round(response.data.main.temp);
-	descriptionElement.innerHTML = response.data.weather[0].main;
+	descriptionElement.innerHTML = response.data.weather[0].description;
 	humidityElement.innerHTML = response.data.main.humidity;
 	windElement.innerHTML = Math.round(response.data.wind.speed);
 	cityElement.innerHTML = response.data.name;
@@ -46,12 +46,12 @@ function showWeather(response) {
 	dataElement.innerHTML = formatDate(response.data.dt * 1000);
 	mounthElement.innerHTML = formatMounth(response.data.dt * 1000);
 	iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-	iconElement.setAttribute("alt", response.data.weather[0].main);
+	iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 
 let apiKey = "e35e5d7beb72c9d9170e247ad8a56db2";
-let city = "kyiv";
+let city = "lozova";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(showWeather);
