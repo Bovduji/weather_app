@@ -49,9 +49,20 @@ function showWeather(response) {
 	iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
+function search(city) {
 
-let apiKey = "e35e5d7beb72c9d9170e247ad8a56db2";
-let city = "lozova";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+	let apiKey = "e35e5d7beb72c9d9170e247ad8a56db2";
+	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(showWeather);
+	axios.get(apiUrl).then(showWeather);
+}
+
+function searchUserCity(event) {
+	event.preventDefault();
+	let cityInputElement = document.querySelector("#search-text");
+	search(cityInputElement.value);
+}
+
+search("Kyiv");
+let form = document.querySelector("#search");
+form.addEventListener("submit", searchUserCity);
