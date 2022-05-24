@@ -61,7 +61,7 @@ p{
 }
 
 #current-city-title, #current-weekday {
-	font-size: 32px;
+	font-size: 26px;
 	line-height: 45px;
 }
 
@@ -70,6 +70,7 @@ p{
 	font-family: 'Sansita', sans-serif;
 	text-transform: capitalize;
 	font-size: 24px;
+	margin-bottom: 20px;
 }
 
 #current-city-title {
@@ -84,8 +85,9 @@ p{
 }
 
 
-.current-weather-emoji {
+#current-weather-emoji {
 	font-size: 60px;
+	max-height: 70px;
 }
 
 .precipittion, .wind {

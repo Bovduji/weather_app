@@ -27,7 +27,6 @@ function formatMounth(timestamp) {
 
 
 function showWeather(response) {
-	console.log(response.data);
 	let temperatureElement = document.querySelector("#main-temperature");
 	let descriptionElement = document.querySelector("#current-weather");
 	let humidityElement = document.querySelector("#current-humidity");
@@ -36,6 +35,7 @@ function showWeather(response) {
 	let dayElement = document.querySelector("#current-weekday");
 	let dataElement = document.querySelector("#current-time");
 	let mounthElement = document.querySelector("#current-data");
+	let iconElement = document.querySelector("#icon");
 
 	temperatureElement.innerHTML = Math.round(response.data.main.temp);
 	descriptionElement.innerHTML = response.data.weather[0].main;
@@ -45,10 +45,13 @@ function showWeather(response) {
 	dayElement.innerHTML = formatDay(response.data.dt * 1000);
 	dataElement.innerHTML = formatDate(response.data.dt * 1000);
 	mounthElement.innerHTML = formatMounth(response.data.dt * 1000);
+	iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+	iconElement.setAttribute("alt", response.data.weather[0].main);
 }
 
 
 let apiKey = "e35e5d7beb72c9d9170e247ad8a56db2";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=${apiKey}&units=metric`;
+let city = "kyiv";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(showWeather);
