@@ -24,7 +24,6 @@ p{
 	padding: 10px;
 	color: black;
 	font-weight: 400;
-
 }
 .container {
 	margin: 10px auto;
@@ -61,19 +60,19 @@ p{
 	margin-left: 37px;
 }
 
-.current-city-title, .current-weekday {
+#current-city-title, .current-weekday {
 	font-size: 32px;
 	line-height: 45px;
 }
 
-.current-weather{
+#current-weather{
 	color:#22577E;
 	font-family: 'Sansita', sans-serif;
 	text-transform: capitalize;
 	font-size: 24px;
 }
 
-.current-city-title {
+#current-city-title {
 	margin-top: 20px;
 }
 
