@@ -25,6 +25,31 @@ function formatMounth(timestamp) {
 	return `${currentData}/${months[date.getMonth()]}`;
 }
 
+function showForecast() {
+	let forecastElement = document.querySelector("#forecast");
+	let days = ["Thusday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
+	let forecastHtml = `<div class="row">`;
+
+	days.forEach(function (day) {
+		forecastHtml = forecastHtml + `
+			<div class="col-2 week" id="weekday-1">
+				<div class="day">${day}</div>
+				<div class="date">05/05</div>
+				<img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" width="45px">
+				<div class="forecast-temperature">
+					18°C
+				</div>
+			</div>
+		`;
+
+	});
+
+	forecastHtml = forecastHtml + `</div>`;
+	forecastElement.innerHTML = forecastHtml;
+}
+
+
+
 
 function showWeather(response) {
 	let temperatureElement = document.querySelector("#main-temperature");
@@ -85,6 +110,7 @@ function showCelsium(event) {
 
 let temperatureMain = null;
 
+
 let form = document.querySelector("#search");
 form.addEventListener("submit", searchUserCity);
 
@@ -95,3 +121,4 @@ let celsium = document.querySelector("#celsium-link");
 celsium.addEventListener("click", showCelsium);
 
 search("Kyiv");
+showForecast();
