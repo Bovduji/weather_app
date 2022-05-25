@@ -37,6 +37,8 @@ function showWeather(response) {
 	let mounthElement = document.querySelector("#current-data");
 	let iconElement = document.querySelector("#icon");
 
+	temperatureMain = response.data.main.temp;
+
 	temperatureElement.innerHTML = Math.round(response.data.main.temp);
 	descriptionElement.innerHTML = response.data.weather[0].description;
 	humidityElement.innerHTML = response.data.main.humidity;
@@ -63,6 +65,33 @@ function searchUserCity(event) {
 	search(cityInputElement.value);
 }
 
-search("Kyiv");
+function showFahrenheit(event) {
+	event.preventDefault();
+	celsium.classList.remove("active");
+	fahrenheit.classList.add("active");
+	let fahrenheitTemperature = Math.round(temperatureMain * 9 / 5) + 32;
+	let showTemperature = document.querySelector("#main-temperature");
+	showTemperature.innerHTML = fahrenheitTemperature;
+}
+
+function showCelsium(event) {
+	event.preventDefault();
+	celsium.classList.add("active");
+	fahrenheit.classList.remove("active");
+	let celsiumTemperature = Math.round(temperatureMain);
+	let showTemperature = document.querySelector("#main-temperature");
+	showTemperature.innerHTML = celsiumTemperature;
+}
+
+let temperatureMain = null;
+
 let form = document.querySelector("#search");
 form.addEventListener("submit", searchUserCity);
+
+let fahrenheit = document.querySelector("#fahrenheit-link");
+fahrenheit.addEventListener("click", showFahrenheit);
+
+let celsium = document.querySelector("#celsium-link");
+celsium.addEventListener("click", showCelsium);
+
+search("Kyiv");

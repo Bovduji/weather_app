@@ -123,3 +123,8 @@ p{
 .link-git:hover {
 	color:#737dfe;
 }
+
+.current-temperature .active {
+	color: black;
+	cursor: default;
+}
