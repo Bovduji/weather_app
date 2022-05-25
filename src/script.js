@@ -5,7 +5,7 @@ function formatDay(timestamp) {
 	return day;
 }
 
-function formatDate(timestamp) {
+function formatTime(timestamp) {
 	let date = new Date(timestamp);
 	let hours = date.getHours();
 	if (hours < 10) {
@@ -25,7 +25,8 @@ function formatMounth(timestamp) {
 	return `${currentData}/${months[date.getMonth()]}`;
 }
 
-function showForecast() {
+function showForecast(response) {
+	console.log(response.data.daily);
 	let forecastElement = document.querySelector("#forecast");
 	let days = ["Thusday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
 	let forecastHtml = `<div class="row">`;
@@ -48,8 +49,11 @@ function showForecast() {
 	forecastElement.innerHTML = forecastHtml;
 }
 
-
-
+function getForecast(coordinates) {
+	let apiKey = "e35e5d7beb72c9d9170e247ad8a56db2";
+	let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+	axios.get(apiUrl).then(showForecast);
+}
 
 function showWeather(response) {
 	let temperatureElement = document.querySelector("#main-temperature");
@@ -70,10 +74,12 @@ function showWeather(response) {
 	windElement.innerHTML = Math.round(response.data.wind.speed);
 	cityElement.innerHTML = response.data.name;
 	dayElement.innerHTML = formatDay(response.data.dt * 1000);
-	dataElement.innerHTML = formatDate(response.data.dt * 1000);
+	dataElement.innerHTML = formatTime(response.data.dt * 1000);
 	mounthElement.innerHTML = formatMounth(response.data.dt * 1000);
 	iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 	iconElement.setAttribute("alt", response.data.weather[0].description);
+
+	getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -110,7 +116,6 @@ function showCelsium(event) {
 
 let temperatureMain = null;
 
-
 let form = document.querySelector("#search");
 form.addEventListener("submit", searchUserCity);
 
@@ -121,4 +126,3 @@ let celsium = document.querySelector("#celsium-link");
 celsium.addEventListener("click", showCelsium);
 
 search("Kyiv");
-showForecast();
