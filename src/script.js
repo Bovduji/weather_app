@@ -51,7 +51,7 @@ function showForecast(response) {
 		if (index < 6) {
 			forecastHtml = forecastHtml + `
 			<div class="col-2 week" id="weekday-1">
-			${index}
+			
 				<div class="day">${formatedDay(forecastDay.dt)}</div>
 				<div class="date">${formatedData(forecastDay.dt)}</div>
 				<img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="45px">
